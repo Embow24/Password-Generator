@@ -105,7 +105,21 @@ var upperCasedCharacters = [
 
 
 // Function for getting a random element from an array
+function getRandom(specialCharacters) {
+  return specialCharacters [Math.floor(Math.random()*specialCharacters.length)]
+}
 
+function getRandom(numericCharacters) {
+  return numericCharacters [Math.floor(Math.random()*numericCharacters.length)]
+}
+
+function getRandom(lowerCasedCharacters) {
+  return lowerCasedCharacters [Math.floor(Math.random()*lowerCasedCharacters.length)]
+}
+
+function getRandom(upperCasedCharacters) {
+  return upperCasedCharacters [Math.floor(Math.random()*upperCasedCharacters.length)]
+}
 
 // Function to generate password with user input
 function generatePassword() {
