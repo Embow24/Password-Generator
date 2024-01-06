@@ -92,45 +92,29 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 //function getPasswordOptions() {
   var lengthOfPassword = prompt("How many characters would you like in your password?") 
-do {alert("your password should have at least 8 characters but no more than 128")
-lengthOfPassword = prompt ("How many characters would you like in your password?")}
-while (lengthOfPassword < 8 || lengthOfPassword > 128) 
-
-
-    var lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
+  if (lengthOfPassword < 8 || lengthOfPassword > 128) 
+  {alert("your password should have at least 8 characters but no more than 128")
+  prompt("How many characters would you like in your password?")}
+else {var lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
     var upperCasedCharacters = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
     var numericCharacters = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
-    var specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.") 
-
+    var specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.") }
 //}
 
 
 // Function for getting a random element from an array
-var characterTypes = ""
-characterTypes.concat (specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters)
+var characterTypes = []
 function getRandom(characterTypes) {
+  characterTypes = specialCharacters.concat (numericCharacters, lowerCasedCharacters, upperCasedCharacters)
   return characterTypes [Math.floor(Math.random()*characterTypes.length)]
 }
 
-// function getRandom(specialCharacters) {
-// return specialCharacters [Math.floor(Math.random()*specialCharacters.length)]
-// }
-
-// function getRandom(numericCharacters) {
-//   return numericCharacters [Math.floor(Math.random()*numericCharacters.length)]
-// }
-
-// function getRandom(lowerCasedCharacters) {
-//   return lowerCasedCharacters [Math.floor(Math.random()*lowerCasedCharacters.length)]
-// }
-
-// function getRandom(upperCasedCharacters) {
-//   return upperCasedCharacters [Math.floor(Math.random()*upperCasedCharacters.length)]
-// }
-
 // Function to generate password with user input
-function generatePassword() {}
-
+function generatePassword() {
+  for (let j=0; j< characterTypes.length; j++)
+  var password = characterTypes[i]
+return password
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
