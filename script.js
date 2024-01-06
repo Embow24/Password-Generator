@@ -89,24 +89,23 @@ var upperCasedCharacters = [
 ];
 
 
-var minLength = 8
-var maxLength = 128
-
 // Function to prompt user for password options
-function getPasswordOptions() {
-  var length = prompt("How many characters would you like in your password?")
-  var lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
-  var upperCasedCharacters = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
-  var numericCharacters = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
-  var specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.") 
+//function getPasswordOptions() {
+  var lengthOfPassword = prompt("How many characters would you like in your password?") 
+  if (lengthOfPassword < 8 ) {alert("your password should have at least 8 characters but no more than 128")}
+  else if (lengthOfPassword > 128) {alert("your password should have at least 8 characters but no more than 128")}
+
+
+   var lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
+   var upperCasedCharacters = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
+   var numericCharacters = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
+   var specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.") 
  
-}
+//}
 
 
 // Function for getting a random element from an array
-function getRandom(arr) {
 
-}
 
 // Function to generate password with user input
 function generatePassword() {
