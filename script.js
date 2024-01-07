@@ -94,26 +94,40 @@ var upperCasedCharacters = [
   var lengthOfPassword = prompt("How many characters would you like in your password?") 
   if (lengthOfPassword < 8 || lengthOfPassword > 128) 
   {alert("your password should have at least 8 characters but no more than 128")
-  prompt("How many characters would you like in your password?")}
-else {var lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
-    var upperCasedCharacters = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
-    var numericCharacters = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
-    var specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.") }
+  prompt("How many characters would you like in your password?")
+}
+else {lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
+    upperCasedCharacters = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
+    numericCharacters = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
+    specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.")
+  }
+if (lowerCasedCharacters != true && upperCasedCharacters !=true && numericCharacters != true && specialCharacters != true)
+{alert("Please select at least one character type")
+    lowerCasedCharacters = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
+    upperCasedCharacters = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
+    numericCharacters = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
+    specialCharacters = confirm("Click ok if you would like special characters in your password, otherwise click cancel.")
+  }
 //}
 
 
 // Function for getting a random element from an array
-var characterTypes = []
-function getRandom(characterTypes) {
-  characterTypes = specialCharacters.concat (numericCharacters, lowerCasedCharacters, upperCasedCharacters)
-  return characterTypes [Math.floor(Math.random()*characterTypes.length)]
+
+var randomPassword = []
+function getRandom() {
+var characterTypes = specialCharacters.concat (numericCharacters, lowerCasedCharacters, upperCasedCharacters) 
+for (let i=0; i<lengthOfPassword; i++) {
+randomPassword = [Math.floor(Math.random()*characterTypes.length)]
+  }
+  return randomPassword
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  for (let j=0; j< characterTypes.length; j++)
-  var password = characterTypes[i]
-return password
+  var userPassword = ""
+  userPassword += randomPassword
+
+return userPassword
 }
 
 // Get references to the #generate element
