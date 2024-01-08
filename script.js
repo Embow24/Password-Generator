@@ -88,58 +88,66 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var optionLowercase;
-var optionUppercase;
-var optionNumeric;
-var optionSpecialCharacter;
+var lengthOfPassword;
+  var optionLowercase;
+  var optionUppercase;
+  var optionNumeric;
+  var optionSpecialCharacter;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var lengthOfPassword = prompt("How many characters would you like in your password?") 
+  lengthOfPassword = prompt("How many characters would you like in your password?") 
   if (lengthOfPassword < 8 || lengthOfPassword > 128) 
   {alert("your password should have at least 8 characters but no more than 128")
   prompt("How many characters would you like in your password?")
 }
-else {optionLowercase = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
-optionUppercase = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
-optionNumeric = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
-optionSpecialCharacter = confirm("Click ok if you would like special characters in your password, otherwise click cancel.")
-  }
-if (optionLowercase != true && optionUppercase !=true && optionNumeric != true && optionSpecialCharacter != true)
+
+  optionLowercase = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
+  optionUppercase = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
+  optionNumeric = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
+  optionSpecialCharacter = confirm("Click ok if you would like special characters in your password, otherwise click cancel.")
+
+  if (optionLowercase != true && optionUppercase !=true && optionNumeric != true && optionSpecialCharacter != true)
 {alert("Please select at least one character type")
 optionLowercase = confirm("Click ok if you would like lowercase characters in your password, otherwise click cancel.")
-optionUppercase = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.") 
-optionNumeric = confirm("Click ok if you would like numbers in your password, otherwise click cancel.") 
+optionUppercase = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.")
+optionNumeric = confirm("Click ok if you would like numbers in your password, otherwise click cancel.")
 optionSpecialCharacter = confirm("Click ok if you would like special characters in your password, otherwise click cancel.")
   }
+  return lengthOfPassword
 }
 
 // Function for getting a random element from an array
-
+var characterTypes = []
 var randomPassword;
+var finalPassword = ""
+
 function getRandom() {
-var characterTypes = specialCharacters.concat (numericCharacters, lowerCasedCharacters, upperCasedCharacters) 
+
+  if(optionLowercase == true) {characterTypes += lowerCasedCharacters}
+  if(optionUppercase == true) {characterTypes += upperCasedCharacters}
+  if(optionNumeric == true) {characterTypes += numericCharacters}
+  if(optionSpecialCharacter == true) {characterTypes += specialCharacters}
+  
+
 for (let i=0; i<lengthOfPassword; i++) {
 randomPassword = [Math.floor(Math.random()*characterTypes.length)]
+finalPassword = finalPassword + characterTypes[randomPassword]
   }
-  return randomPassword
+  return finalPassword
 }
+
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
   getRandom()
-  var userPassword = ""
-  userPassword += randomPassword
-
-return userPassword
-
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
-  console.log("Hello")
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
