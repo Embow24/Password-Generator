@@ -88,6 +88,13 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+//converted the arrays to strings to remove the commas
+var specialCharactersString = specialCharacters.join("")
+var numericCharactersString = numericCharacters.join("")
+var lowerCasedCharactersString = lowerCasedCharacters.join("")
+var upperCasedCharactersString = upperCasedCharacters.join("")
+
+//variables for confirm statements
 var lengthOfPassword;
   var optionLowercase;
   var optionUppercase;
@@ -124,10 +131,10 @@ var userPassword = ""
 
 function getRandom() {
 
-  if(optionLowercase == true) {characterTypes += lowerCasedCharacters}
-  if(optionUppercase == true) {characterTypes += upperCasedCharacters}
-  if(optionNumeric == true) {characterTypes += numericCharacters}
-  if(optionSpecialCharacter == true) {characterTypes += specialCharacters}
+  if(optionLowercase == true) {characterTypes += lowerCasedCharactersString}
+  if(optionUppercase == true) {characterTypes += upperCasedCharactersString}
+  if(optionNumeric == true) {characterTypes += numericCharactersString}
+  if(optionSpecialCharacter == true) {characterTypes += specialCharactersString}
 
 for (let i=0; i<lengthOfPassword; i++) {
 randomPassword = [Math.floor(Math.random()*characterTypes.length)]
@@ -156,3 +163,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
