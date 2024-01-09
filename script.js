@@ -104,6 +104,7 @@ var lengthOfPassword;
 // Function to prompt user for password options
 function getPasswordOptions() {
   lengthOfPassword = prompt("How many characters would you like in your password?") 
+
   if (lengthOfPassword < 8 || lengthOfPassword > 128) 
   {alert("your password should have at least 8 characters but no more than 128")
   prompt("How many characters would you like in your password?")
@@ -120,8 +121,8 @@ optionLowercase = confirm("Click ok if you would like lowercase characters in yo
 optionUppercase = confirm("Click ok if you would like uppercase characters in your password, otherwise click cancel.")
 optionNumeric = confirm("Click ok if you would like numbers in your password, otherwise click cancel.")
 optionSpecialCharacter = confirm("Click ok if you would like special characters in your password, otherwise click cancel.")
-  }
-  return lengthOfPassword
+  } 
+  return lengthOfPassword 
 }
 
 // Function for getting a random element from an array
