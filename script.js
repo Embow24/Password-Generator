@@ -120,7 +120,7 @@ optionSpecialCharacter = confirm("Click ok if you would like special characters 
 // Function for getting a random element from an array
 var characterTypes = []
 var randomPassword;
-var finalPassword = ""
+var userPassword = ""
 
 function getRandom() {
 
@@ -128,19 +128,19 @@ function getRandom() {
   if(optionUppercase == true) {characterTypes += upperCasedCharacters}
   if(optionNumeric == true) {characterTypes += numericCharacters}
   if(optionSpecialCharacter == true) {characterTypes += specialCharacters}
-  
 
 for (let i=0; i<lengthOfPassword; i++) {
 randomPassword = [Math.floor(Math.random()*characterTypes.length)]
-finalPassword = finalPassword + characterTypes[randomPassword]
+userPassword = userPassword + characterTypes[randomPassword]
   }
-  return finalPassword
+  return userPassword
 }
 
 // Function to generate password with user input
+var finalPassword = ""
 function generatePassword() {
-  getPasswordOptions()
-  getRandom()
+  finalPassword += getPasswordOptions() && getRandom()
+return finalPassword
 }
 
 
